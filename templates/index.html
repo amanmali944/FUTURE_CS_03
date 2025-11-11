@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Sharing System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>🔐 Secure File Sharing System</h1>
+            <p>Upload, Encrypt & Download files securely with AES encryption</p>
+        </header>
+
+        <section class="upload-section">
+            <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+                <label for="file" class="file-label">Choose a file to upload</label>
+                <input type="file" id="file" name="file" required>
+                <button type="submit">Upload & Encrypt</button>
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="flash">{{ messages[0] }}</div>
+                {% endif %}
+            {% endwith %}
+        </section>
+
+        <section class="file-list">
+            <h2>📂 Encrypted Files</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in files %}
+                        <tr>
+                            <td>{{ file }}</td>
+                            <td><a href="/download/{{ file }}" class="download-btn">Decrypt & Download</a></td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="2" class="empty">No encrypted files found</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>© 2025 Secure File Sharing | Developed by Aman</p>
+        </footer>
+    </div>
+</body>
+</html>
