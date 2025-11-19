@@ -1,9 +1,9 @@
-# 🔐 Cyber Security Internship – Task 3  
+# Cyber Security Internship – Task 3  
 ## Secure File Sharing System using Flask and AES Encryption  
 
 ---
 
-### 📌 Basic Information
+### Basic Information
 - **Name:** Aman Mali  
 - **Task:** Secure File Sharing System  
 - **Internship:** Future Interns – Cybersecurity (2025)  
@@ -12,7 +12,7 @@
 
 ---
 
-### 🧠 Overview
+### Overview
 This project involves creating a **secure web application** that enables users to upload and download files safely.  
 To ensure **data confidentiality**, all files are encrypted before storage and decrypted upon download using the **AES (Advanced Encryption Standard)** algorithm.  
 
@@ -33,7 +33,7 @@ The main objective of this system is to simulate a **real-world secure file tran
 
 ---
 
-### 🧩 System Architecture & Workflow
+### System Architecture & Workflow
 1. **User uploads a file** via the Flask web interface.  
 2. The file is immediately **encrypted using AES (CBC mode)**.  
 3. The **encrypted file (.enc)** is stored securely in the `uploads/` folder.  
